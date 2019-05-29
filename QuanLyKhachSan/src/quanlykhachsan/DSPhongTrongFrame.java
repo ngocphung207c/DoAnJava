@@ -19,6 +19,10 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
      */
     public DSPhongTrongFrame() {
         initComponents();
+         ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
+        getContentPane().add(panel);
+        
+        
          ImageIcon iconThue = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/key.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnThue.setIcon(iconThue);
         
@@ -193,9 +197,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
 
     private void btnThueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThueMouseClicked
         // TODO add your handling code here:
-        ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
         ThueFrame thue = new ThueFrame();
-        thue.getContentPane().add(panel);
         thue.setVisible(true);
         thue.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnThueMouseClicked
