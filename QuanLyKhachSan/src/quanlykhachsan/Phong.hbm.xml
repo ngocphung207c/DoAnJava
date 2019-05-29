@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 30, 2019 12:17:00 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="quanlykhachsan.Phong" table="phong" catalog="quanlykhachsan" optimistic-lock="version">
+        <id name="maPhong" type="int">
+            <column name="MaPhong" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenPhong" type="string">
+            <column name="TenPhong" length="40" />
+        </property>
+        <property name="ghiChu" type="string">
+            <column name="GhiChu" length="150" />
+        </property>
+        <property name="tinhTrang" type="java.lang.Boolean">
+            <column name="TinhTrang" />
+        </property>
+        <property name="maLoai" type="string">
+            <column name="MaLoai" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>
