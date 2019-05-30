@@ -1,5 +1,5 @@
 package quanlykhachsan;
-// Generated May 30, 2019 12:16:59 AM by Hibernate Tools 4.3.1
+// Generated May 30, 2019 11:49:09 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -10,9 +10,9 @@ import java.util.Date;
 public class Chitiethoadon  implements java.io.Serializable {
 
 
-     private int maCthd;
-     private String maHd;
-     private String maPhong;
+     private Integer maCthd;
+     private int maHd;
+     private int maPhong;
      private Integer soNgayThue;
      private Float donGia;
      private Date ngayTao;
@@ -21,13 +21,11 @@ public class Chitiethoadon  implements java.io.Serializable {
     }
 
 	
-    public Chitiethoadon(int maCthd, String maHd, String maPhong) {
-        this.maCthd = maCthd;
+    public Chitiethoadon(int maHd, int maPhong) {
         this.maHd = maHd;
         this.maPhong = maPhong;
     }
-    public Chitiethoadon(int maCthd, String maHd, String maPhong, Integer soNgayThue, Float donGia, Date ngayTao) {
-       this.maCthd = maCthd;
+    public Chitiethoadon(int maHd, int maPhong, Integer soNgayThue, Float donGia, Date ngayTao) {
        this.maHd = maHd;
        this.maPhong = maPhong;
        this.soNgayThue = soNgayThue;
@@ -35,25 +33,25 @@ public class Chitiethoadon  implements java.io.Serializable {
        this.ngayTao = ngayTao;
     }
    
-    public int getMaCthd() {
+    public Integer getMaCthd() {
         return this.maCthd;
     }
     
-    public void setMaCthd(int maCthd) {
+    public void setMaCthd(Integer maCthd) {
         this.maCthd = maCthd;
     }
-    public String getMaHd() {
+    public int getMaHd() {
         return this.maHd;
     }
     
-    public void setMaHd(String maHd) {
+    public void setMaHd(int maHd) {
         this.maHd = maHd;
     }
-    public String getMaPhong() {
+    public int getMaPhong() {
         return this.maPhong;
     }
     
-    public void setMaPhong(String maPhong) {
+    public void setMaPhong(int maPhong) {
         this.maPhong = maPhong;
     }
     public Integer getSoNgayThue() {

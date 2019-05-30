@@ -1,5 +1,5 @@
 package quanlykhachsan;
-// Generated May 30, 2019 12:16:59 AM by Hibernate Tools 4.3.1
+// Generated May 30, 2019 11:49:09 AM by Hibernate Tools 4.3.1
 
 
 
@@ -13,7 +13,7 @@ public class Phong  implements java.io.Serializable {
      private String tenPhong;
      private String ghiChu;
      private Boolean tinhTrang;
-     private String maLoai;
+     private Integer maLoai;
 
     public Phong() {
     }
@@ -22,7 +22,7 @@ public class Phong  implements java.io.Serializable {
     public Phong(int maPhong) {
         this.maPhong = maPhong;
     }
-    public Phong(int maPhong, String tenPhong, String ghiChu, Boolean tinhTrang, String maLoai) {
+    public Phong(int maPhong, String tenPhong, String ghiChu, Boolean tinhTrang, Integer maLoai) {
        this.maPhong = maPhong;
        this.tenPhong = tenPhong;
        this.ghiChu = ghiChu;
@@ -58,11 +58,11 @@ public class Phong  implements java.io.Serializable {
     public void setTinhTrang(Boolean tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
-    public String getMaLoai() {
+    public Integer getMaLoai() {
         return this.maLoai;
     }
     
-    public void setMaLoai(String maLoai) {
+    public void setMaLoai(Integer maLoai) {
         this.maLoai = maLoai;
     }
 

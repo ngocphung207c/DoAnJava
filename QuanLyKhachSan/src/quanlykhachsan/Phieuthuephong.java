@@ -1,5 +1,5 @@
 package quanlykhachsan;
-// Generated May 30, 2019 12:16:59 AM by Hibernate Tools 4.3.1
+// Generated May 30, 2019 11:49:09 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,17 +13,17 @@ public class Phieuthuephong  implements java.io.Serializable {
      private Integer maPhieuThue;
      private Date ngayThue;
      private Float tongTien;
-     private String maHd;
+     private int maHd;
 
     public Phieuthuephong() {
     }
 
 	
-    public Phieuthuephong(Date ngayThue, String maHd) {
+    public Phieuthuephong(Date ngayThue, int maHd) {
         this.ngayThue = ngayThue;
         this.maHd = maHd;
     }
-    public Phieuthuephong(Date ngayThue, Float tongTien, String maHd) {
+    public Phieuthuephong(Date ngayThue, Float tongTien, int maHd) {
        this.ngayThue = ngayThue;
        this.tongTien = tongTien;
        this.maHd = maHd;
@@ -50,11 +50,11 @@ public class Phieuthuephong  implements java.io.Serializable {
     public void setTongTien(Float tongTien) {
         this.tongTien = tongTien;
     }
-    public String getMaHd() {
+    public int getMaHd() {
         return this.maHd;
     }
     
-    public void setMaHd(String maHd) {
+    public void setMaHd(int maHd) {
         this.maHd = maHd;
     }
 

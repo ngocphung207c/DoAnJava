@@ -1,5 +1,5 @@
 package quanlykhachsan;
-// Generated May 30, 2019 12:16:59 AM by Hibernate Tools 4.3.1
+// Generated May 30, 2019 11:49:09 AM by Hibernate Tools 4.3.1
 
 
 

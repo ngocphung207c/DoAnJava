@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 30, 2019 12:17:00 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 30, 2019 11:49:10 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="quanlykhachsan.Phieuthuephong" table="phieuthuephong" catalog="quanlykhachsan" optimistic-lock="version">
         <id name="maPhieuThue" type="java.lang.Integer">
@@ -14,8 +14,8 @@
         <property name="tongTien" type="java.lang.Float">
             <column name="TongTien" precision="12" scale="0" />
         </property>
-        <property name="maHd" type="string">
-            <column name="MaHD" length="20" not-null="true" />
+        <property name="maHd" type="int">
+            <column name="MaHD" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

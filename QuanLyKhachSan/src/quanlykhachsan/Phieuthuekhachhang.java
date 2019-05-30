@@ -1,5 +1,5 @@
 package quanlykhachsan;
-// Generated May 30, 2019 12:16:59 AM by Hibernate Tools 4.3.1
+// Generated May 30, 2019 11:49:09 AM by Hibernate Tools 4.3.1
 
 
 
@@ -12,19 +12,19 @@ public class Phieuthuekhachhang  implements java.io.Serializable {
      private Integer maPhieuThue;
      private String khachHang;
      private String loaiKhach;
-     private int cmnd;
+     private String cmnd;
      private String diaChi;
 
     public Phieuthuekhachhang() {
     }
 
 	
-    public Phieuthuekhachhang(String khachHang, String loaiKhach, int cmnd) {
+    public Phieuthuekhachhang(String khachHang, String loaiKhach, String cmnd) {
         this.khachHang = khachHang;
         this.loaiKhach = loaiKhach;
         this.cmnd = cmnd;
     }
-    public Phieuthuekhachhang(String khachHang, String loaiKhach, int cmnd, String diaChi) {
+    public Phieuthuekhachhang(String khachHang, String loaiKhach, String cmnd, String diaChi) {
        this.khachHang = khachHang;
        this.loaiKhach = loaiKhach;
        this.cmnd = cmnd;
@@ -52,11 +52,11 @@ public class Phieuthuekhachhang  implements java.io.Serializable {
     public void setLoaiKhach(String loaiKhach) {
         this.loaiKhach = loaiKhach;
     }
-    public int getCmnd() {
+    public String getCmnd() {
         return this.cmnd;
     }
     
-    public void setCmnd(int cmnd) {
+    public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
     }
     public String getDiaChi() {

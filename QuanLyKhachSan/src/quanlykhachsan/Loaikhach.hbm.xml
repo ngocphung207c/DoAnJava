@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 30, 2019 12:17:00 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 30, 2019 11:49:10 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="quanlykhachsan.Loaikhach" table="loaikhach" catalog="quanlykhachsan" optimistic-lock="version">
         <id name="maLoai" type="int">
@@ -9,7 +9,7 @@
             <generator class="assigned" />
         </id>
         <property name="tenLoai" type="string">
-            <column name="TenLoai" length="50" not-null="true" />
+            <column name="TenLoai" length="100" not-null="true" />
         </property>
         <property name="heSo" type="java.lang.Double">
             <column name="HeSo" precision="22" scale="0" />
