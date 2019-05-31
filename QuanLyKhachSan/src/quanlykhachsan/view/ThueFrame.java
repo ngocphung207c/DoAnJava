@@ -76,7 +76,7 @@ public class ThueFrame extends javax.swing.JFrame {
         this.txtTenPhong.setEditable(false);
         this.txtTongTien.setEditable(false);
         this.jDateChooser1.setEnabled(false);
-        
+        donGia = DonGia;
        modelCombox = (DefaultComboBoxModel) cmbLoaiKhach.getModel();
        List<Loaikhach> lkList = lkhachDao.getlKhachList();
        hienthidsloaip(lkList);
@@ -101,7 +101,7 @@ public class ThueFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cmbLoaiKhach = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        txtTenKH1 = new javax.swing.JTextField();
+        txtCMND = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtDiaChi = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -153,7 +153,7 @@ public class ThueFrame extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("CMND");
 
-        txtTenKH1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCMND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,6 +169,11 @@ public class ThueFrame extends javax.swing.JFrame {
 
         btnXoa.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoa.setText("Xóa");
+        btnXoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXoaMouseClicked(evt);
+            }
+        });
 
         btnThem.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThem.setText("Thêm");
@@ -209,6 +214,11 @@ public class ThueFrame extends javax.swing.JFrame {
 
         btnRefresh.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnRefresh.setText("Refesh");
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,7 +287,7 @@ public class ThueFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtSDT)
-                                .addComponent(txtTenKH1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                                .addComponent(txtCMND, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,7 +337,7 @@ public class ThueFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel14)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel12)
-                                .addComponent(txtTenKH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCMND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(36, 36, 36)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 208, Short.MAX_VALUE))
@@ -351,21 +361,55 @@ public class ThueFrame extends javax.swing.JFrame {
         if(SLKH > cd.getSoKhachToiDa())
         {
             JOptionPane.showConfirmDialog((Component) null, "Đã quá số lượng khách cho phép", "Yêu cầu", JOptionPane.CLOSED_OPTION);
+            SLKH = SLKH - 1;
         }
         else
         {
+            Loaikhach lk = (Loaikhach) this.cmbLoaiKhach.getSelectedItem();
             if(SLKH  == 1)
             {
-                 Loaikhach lk = (Loaikhach) this.cmbLoaiKhach.getSelectedItem();
-                 TongTien = (float) (TongTien + donGia * lk.getHeSo());
+                 
+                 TongTien = (float) (donGia * lk.getHeSo());
             }
-            else
+            if (SLKH > 2)
             {
-                //TongTien = (float) (TongTien + donGia * lk.getHeSo())
+                TongTien = TongTien + (donGia * cd.getTyLePhuThu());
             }
         }
-        
+        this.txtTongTien.setText(String.valueOf(TongTien));
     }//GEN-LAST:event_btnThemMouseClicked
+
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        // TODO add your handling code here:
+        this.txtTenKH.setText("");
+        this.txtSDT.setText("");
+        this.txtCMND.setText("");
+        this.txtDiaChi.setText("");
+    }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnXoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMouseClicked
+        // TODO add your handling code here:
+        SLKH = SLKH -1;
+        if(SLKH < 0)
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Không có khách nào để xóa", "Thông báo", JOptionPane.CLOSED_OPTION);
+            SLKH = SLKH + 1;
+        }
+        else
+        {
+            Loaikhach lk = (Loaikhach) this.cmbLoaiKhach.getSelectedItem();
+            if(SLKH  == 0)
+            {
+                 
+                 TongTien = TongTien - (float) (donGia * lk.getHeSo());
+            }
+            if (SLKH == 2)
+            {
+                TongTien = TongTien - (donGia * cd.getTyLePhuThu());
+            }
+        }
+        this.txtTongTien.setText(String.valueOf(TongTien));
+    }//GEN-LAST:event_btnXoaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -430,10 +474,10 @@ public class ThueFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtCMND;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtTenKH;
-    private javax.swing.JTextField txtTenKH1;
     private javax.swing.JTextField txtTenPhong;
     private javax.swing.JTextField txtTongTien;
     // End of variables declaration//GEN-END:variables
