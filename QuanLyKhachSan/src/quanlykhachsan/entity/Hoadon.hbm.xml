@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 31, 2019 5:03:24 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 1, 2019 12:10:58 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="quanlykhachsan.Hoadon" table="hoadon" catalog="quanlykhachsan" optimistic-lock="version">
+    <class name="quanlykhachsan.entity.Hoadon" table="hoadon" catalog="quanlykhachsan" optimistic-lock="version">
         <id name="maHd" type="int">
             <column name="MaHD" />
             <generator class="assigned" />

@@ -1,5 +1,5 @@
-package quanlykhachsan;
-// Generated May 31, 2019 5:03:23 PM by Hibernate Tools 4.3.1
+package quanlykhachsan.entity;
+// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

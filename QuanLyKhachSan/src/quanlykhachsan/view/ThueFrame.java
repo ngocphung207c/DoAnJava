@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlykhachsan;
+package quanlykhachsan.view;
 
 import java.awt.Component;
 import java.awt.Image;
@@ -11,7 +11,10 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import quanlykhachsan.*;
+import quanlykhachsan.view.*;
+import quanlykhachsan.dao.*;
+import quanlykhachsan.entity.*;
 /**
  *
  * @author Phung
@@ -25,6 +28,7 @@ public class ThueFrame extends javax.swing.JFrame {
      
     int SLKH = 0;
     float TongTien = 0;
+    float donGia = 0;
     CaiDatDao cdDao = new CaiDatDao();
     Caidat cd = cdDao.getCaiDat();  
     LoaiKhachDao lkhachDao = new LoaiKhachDao();
@@ -49,7 +53,7 @@ public class ThueFrame extends javax.swing.JFrame {
         this.btnRefresh.setIcon(iconRefresh);
     }
     
-    public ThueFrame(String tenPhong) {
+    public ThueFrame(String tenPhong, float DonGia) {
         initComponents();
         ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
         getContentPane().add(panel);
@@ -350,10 +354,14 @@ public class ThueFrame extends javax.swing.JFrame {
         }
         else
         {
-            
-            if(SLKH  <= 2)
+            if(SLKH  == 1)
             {
-                //TongTien = 
+                 Loaikhach lk = (Loaikhach) this.cmbLoaiKhach.getSelectedItem();
+                 TongTien = (float) (TongTien + donGia * lk.getHeSo());
+            }
+            else
+            {
+                //TongTien = (float) (TongTien + donGia * lk.getHeSo())
             }
         }
         

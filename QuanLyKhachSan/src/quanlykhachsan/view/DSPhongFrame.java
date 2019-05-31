@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlykhachsan;
+package quanlykhachsan.view;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -12,7 +12,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-
+import quanlykhachsan.*;
+import quanlykhachsan.dao.*;
+import quanlykhachsan.entity.*;
 /**
  *
  * @author Phung

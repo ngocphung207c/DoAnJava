@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlykhachsan;
+package quanlykhachsan.view;
 
 import java.awt.Component;
 import java.awt.Image;
@@ -20,7 +20,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
+import quanlykhachsan.*;
+import quanlykhachsan.dao.*;
+import quanlykhachsan.entity.*;
 /**
  *
  * @author Phung

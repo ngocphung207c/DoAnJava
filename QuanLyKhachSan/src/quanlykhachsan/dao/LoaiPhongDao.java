@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlykhachsan;
+package quanlykhachsan.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
+import quanlykhachsan.*;
+import quanlykhachsan.entity.*;
 /**
  *
  * @author Phung

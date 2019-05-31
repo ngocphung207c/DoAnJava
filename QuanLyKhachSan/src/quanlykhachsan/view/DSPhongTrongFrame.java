@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlykhachsan;
+package quanlykhachsan.view;
 
 import java.awt.Component;
 import java.awt.Image;
@@ -14,7 +14,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+import quanlykhachsan.*;
+import quanlykhachsan.view.*;
+import quanlykhachsan.dao.*;
+import quanlykhachsan.entity.*;
 /**
  *
  * @author Phung
@@ -30,6 +33,8 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
     PhongDao pDao = new PhongDao();
     LoaiPhongDao lpDao = new LoaiPhongDao();
     String tenPhongChon = "";
+    float donGia = 0;
+    String tinhTrang = "";
     public DSPhongTrongFrame() {
         initComponents();
          ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
@@ -254,7 +259,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!this.txtTenPhongChon.getText().equals(""))
         {
-            ThueFrame thue = new ThueFrame(txtTenPhongChon.getText());
+            ThueFrame thue = new ThueFrame(txtTenPhongChon.getText(), donGia);
             thue.setVisible(true);
             thue.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
         }
@@ -331,9 +336,10 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         if(jTable1.getSelectedRow() != -1)
         {
            int index = jTable1.getSelectedRow();
-           
            String TenPhong = (String)(modeltable.getValueAt(index,0));
            this.txtTenPhongChon.setText(TenPhong);
+           donGia = (float)(modeltable.getValueAt(index,2));
+           tinhTrang = (String)(modeltable.getValueAt(index,3));
         }
     }//GEN-LAST:event_jTable1MouseClicked
 

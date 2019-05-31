@@ -1,5 +1,5 @@
-package quanlykhachsan;
-// Generated May 31, 2019 5:03:23 PM by Hibernate Tools 4.3.1
+package quanlykhachsan.entity;
+// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
 
 
 
@@ -42,11 +42,12 @@ public class Loaiphong  implements java.io.Serializable {
     public void setDonGia(Float donGia) {
         this.donGia = donGia;
     }
-     @Override
+ @Override
     public String toString()
     {
         return this.tenLoai;
     }
+
 
 
 }
