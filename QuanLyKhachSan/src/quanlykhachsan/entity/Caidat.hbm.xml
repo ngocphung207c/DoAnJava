@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 5:03:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="quanlykhachsan.Caidat" table="caidat" catalog="quanlykhachsan" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="tyLePhuThu" type="float">
+            <column name="TyLePhuThu" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="soKhachToiDa" type="int">
+            <column name="SoKhachToiDa" not-null="true" />
+        </property>
+        <property name="ngayBatDau" type="timestamp">
+            <column name="NgayBatDau" length="26" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019 5:03:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="quanlykhachsan.Hoadon" table="hoadon" catalog="quanlykhachsan" optimistic-lock="version">
+        <id name="maHd" type="int">
+            <column name="MaHD" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenKhachHang" type="string">
+            <column name="TenKhachHang" length="100" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="200" />
+        </property>
+        <property name="triGia" type="java.lang.Float">
+            <column name="TriGia" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
