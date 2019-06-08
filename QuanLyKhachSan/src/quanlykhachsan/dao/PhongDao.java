@@ -170,4 +170,53 @@ public class PhongDao {
         }
         return phongList;
     }
+      public boolean themPhong(Phong p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.save(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
+     public boolean suaPhong(Phong p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.update(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
+     
+     public boolean xoaPhong(Phong p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.delete(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
 }
