@@ -49,7 +49,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
          ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit2.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnExit.setIcon(iconExit);
         
-        String [] ColumNames={"Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
+        String [] ColumNames={"STT", "Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
         modeltable = new DefaultTableModel(null , ColumNames);
         
         List<Phong> pTList = pDao.getPhongTrongList();
@@ -398,16 +398,17 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
             Loaiphong lp = lpDao.TonTai(s.getMaLoai());
           // if(s.getTinhTrang().equals("Trong"))
            // {
-                Object[] items = new Object[]{s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang()};
+                Object[] items = new Object[]{i+1,s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang()};
                 modeltable.addRow(items);
             //}
         }
         jTable1.setModel(modeltable);
         jTable1.setRowHeight(30);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(30);
         jTable1.getColumnModel().getColumn(2).setPreferredWidth(30);
-        jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(30);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
