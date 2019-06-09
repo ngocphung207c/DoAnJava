@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,28 +9,33 @@ package quanlykhachsan.entity;
 public class Phieuthuekhachhang  implements java.io.Serializable {
 
 
+     private Integer id;
      private Integer maPhieuThue;
-     private String khachHang;
-     private String loaiKhach;
+     private String tenKhachHang;
+     private Integer loaiKhach;
      private String cmnd;
      private String diaChi;
+     private Boolean xoa;
 
     public Phieuthuekhachhang() {
     }
 
-	
-    public Phieuthuekhachhang(String khachHang, String loaiKhach, String cmnd) {
-        this.khachHang = khachHang;
-        this.loaiKhach = loaiKhach;
-        this.cmnd = cmnd;
-    }
-    public Phieuthuekhachhang(String khachHang, String loaiKhach, String cmnd, String diaChi) {
-       this.khachHang = khachHang;
+    public Phieuthuekhachhang(Integer maPhieuThue, String tenKhachHang, Integer loaiKhach, String cmnd, String diaChi, Boolean xoa) {
+       this.maPhieuThue = maPhieuThue;
+       this.tenKhachHang = tenKhachHang;
        this.loaiKhach = loaiKhach;
        this.cmnd = cmnd;
        this.diaChi = diaChi;
+       this.xoa = xoa;
     }
    
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public Integer getMaPhieuThue() {
         return this.maPhieuThue;
     }
@@ -38,18 +43,18 @@ public class Phieuthuekhachhang  implements java.io.Serializable {
     public void setMaPhieuThue(Integer maPhieuThue) {
         this.maPhieuThue = maPhieuThue;
     }
-    public String getKhachHang() {
-        return this.khachHang;
+    public String getTenKhachHang() {
+        return this.tenKhachHang;
     }
     
-    public void setKhachHang(String khachHang) {
-        this.khachHang = khachHang;
+    public void setTenKhachHang(String tenKhachHang) {
+        this.tenKhachHang = tenKhachHang;
     }
-    public String getLoaiKhach() {
+    public Integer getLoaiKhach() {
         return this.loaiKhach;
     }
     
-    public void setLoaiKhach(String loaiKhach) {
+    public void setLoaiKhach(Integer loaiKhach) {
         this.loaiKhach = loaiKhach;
     }
     public String getCmnd() {
@@ -65,6 +70,13 @@ public class Phieuthuekhachhang  implements java.io.Serializable {
     
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
+    }
+    public Boolean getXoa() {
+        return this.xoa;
+    }
+    
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
     }
 
 

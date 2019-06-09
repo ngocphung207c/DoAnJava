@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,22 +11,19 @@ public class Phieuthuephong  implements java.io.Serializable {
 
 
      private Integer maPhieuThue;
+     private Integer maPhong;
      private Date ngayThue;
      private Float tongTien;
-     private int maHd;
+     private Boolean xoa;
 
     public Phieuthuephong() {
     }
 
-	
-    public Phieuthuephong(Date ngayThue, int maHd) {
-        this.ngayThue = ngayThue;
-        this.maHd = maHd;
-    }
-    public Phieuthuephong(Date ngayThue, Float tongTien, int maHd) {
+    public Phieuthuephong(Integer maPhong, Date ngayThue, Float tongTien, Boolean xoa) {
+       this.maPhong = maPhong;
        this.ngayThue = ngayThue;
        this.tongTien = tongTien;
-       this.maHd = maHd;
+       this.xoa = xoa;
     }
    
     public Integer getMaPhieuThue() {
@@ -35,6 +32,13 @@ public class Phieuthuephong  implements java.io.Serializable {
     
     public void setMaPhieuThue(Integer maPhieuThue) {
         this.maPhieuThue = maPhieuThue;
+    }
+    public Integer getMaPhong() {
+        return this.maPhong;
+    }
+    
+    public void setMaPhong(Integer maPhong) {
+        this.maPhong = maPhong;
     }
     public Date getNgayThue() {
         return this.ngayThue;
@@ -50,12 +54,12 @@ public class Phieuthuephong  implements java.io.Serializable {
     public void setTongTien(Float tongTien) {
         this.tongTien = tongTien;
     }
-    public int getMaHd() {
-        return this.maHd;
+    public Boolean getXoa() {
+        return this.xoa;
     }
     
-    public void setMaHd(int maHd) {
-        this.maHd = maHd;
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
     }
 
 

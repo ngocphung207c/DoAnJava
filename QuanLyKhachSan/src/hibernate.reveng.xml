@@ -42,10 +42,12 @@ Contributor(s):
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="quanlykhachsan"/>
   <table-filter match-name="loaiphong"/>
-  <table-filter match-name="hoadon"/>
-  <table-filter match-name="phieuthuekhachhang"/>
-  <table-filter match-name="phong"/>
-  <table-filter match-name="chitiethoadon"/>
   <table-filter match-name="loaikhach"/>
   <table-filter match-name="phieuthuephong"/>
+  <table-filter match-name="taikhoan"/>
+  <table-filter match-name="caidat"/>
+  <table-filter match-name="phong"/>
+  <table-filter match-name="phieuthuekhachhang"/>
+  <table-filter match-name="hoadon"/>
+  <table-filter match-name="nhanvien"/>
 </hibernate-reverse-engineering>

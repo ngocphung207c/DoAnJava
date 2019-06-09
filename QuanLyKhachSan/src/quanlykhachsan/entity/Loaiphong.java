@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,13 +12,15 @@ public class Loaiphong  implements java.io.Serializable {
      private Integer maLoai;
      private String tenLoai;
      private Float donGia;
+     private Boolean xoa;
 
     public Loaiphong() {
     }
 
-    public Loaiphong(String tenLoai, Float donGia) {
+    public Loaiphong(String tenLoai, Float donGia, Boolean xoa) {
        this.tenLoai = tenLoai;
        this.donGia = donGia;
+       this.xoa = xoa;
     }
    
     public Integer getMaLoai() {
@@ -42,7 +44,14 @@ public class Loaiphong  implements java.io.Serializable {
     public void setDonGia(Float donGia) {
         this.donGia = donGia;
     }
- @Override
+    public Boolean getXoa() {
+        return this.xoa;
+    }
+    
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
+    }
+@Override
     public String toString()
     {
         return this.tenLoai;

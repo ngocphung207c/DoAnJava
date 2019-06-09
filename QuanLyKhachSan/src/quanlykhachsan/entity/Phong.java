@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 
@@ -14,15 +14,17 @@ public class Phong  implements java.io.Serializable {
      private String ghiChu;
      private String tinhTrang;
      private Integer maLoai;
+     private Boolean xoa;
 
     public Phong() {
     }
 
-    public Phong(String tenPhong, String ghiChu, String tinhTrang, Integer maLoai) {
+    public Phong(String tenPhong, String ghiChu, String tinhTrang, Integer maLoai, Boolean xoa) {
        this.tenPhong = tenPhong;
        this.ghiChu = ghiChu;
        this.tinhTrang = tinhTrang;
        this.maLoai = maLoai;
+       this.xoa = xoa;
     }
    
     public Integer getMaPhong() {
@@ -59,6 +61,13 @@ public class Phong  implements java.io.Serializable {
     
     public void setMaLoai(Integer maLoai) {
         this.maLoai = maLoai;
+    }
+    public Boolean getXoa() {
+        return this.xoa;
+    }
+    
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
     }
 
 

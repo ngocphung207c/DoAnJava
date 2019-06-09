@@ -48,13 +48,16 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <property name ="hibernate.current_session_context_class">thread</property> <!--de su dung getCurrentSession() se open/close session tu dong--> 
-    <mapping resource="quanlykhachsan/Phieuthuekhachhang.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Loaikhach.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Phieuthuephong.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Chitiethoadon.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Loaiphong.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Hoadon.hbm.xml"/>
-    <mapping resource="quanlykhachsan/Phong.hbm.xml"/>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <!--de su dung getCurrentSession() se open/close session tu dong-->
+    <mapping resource="quanlykhachsan/entity/Nhanvien.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Phong.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Phieuthuephong.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Caidat.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Loaikhach.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Hoadon.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Phieuthuekhachhang.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Loaiphong.hbm.xml"/>
+    <mapping resource="quanlykhachsan/entity/Taikhoan.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

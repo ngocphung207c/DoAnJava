@@ -1,21 +1,39 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 1, 2019 12:10:58 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 9, 2019 6:17:03 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="quanlykhachsan.entity.Hoadon" table="hoadon" catalog="quanlykhachsan" optimistic-lock="version">
-        <id name="maHd" type="int">
+        <id name="maHd" type="java.lang.Integer">
             <column name="MaHD" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
+        <property name="maPhong" type="java.lang.Integer">
+            <column name="MaPhong" />
+        </property>
+        <property name="maPhieuThue" type="java.lang.Integer">
+            <column name="MaPhieuThue" />
+        </property>
         <property name="tenKhachHang" type="string">
-            <column name="TenKhachHang" length="100" />
+            <column name="TenKhachHang" length="50" />
         </property>
         <property name="diaChi" type="string">
-            <column name="DiaChi" length="200" />
+            <column name="DiaChi" length="100" />
+        </property>
+        <property name="donGia" type="java.lang.Float">
+            <column name="DonGia" precision="12" scale="0" />
+        </property>
+        <property name="soNgayThue" type="java.lang.Integer">
+            <column name="SoNgayThue" />
         </property>
         <property name="triGia" type="java.lang.Float">
             <column name="TriGia" precision="12" scale="0" />
+        </property>
+        <property name="ngayTao" type="timestamp">
+            <column name="NgayTao" length="26" />
+        </property>
+        <property name="xoa" type="java.lang.Boolean">
+            <column name="Xoa" />
         </property>
     </class>
 </hibernate-mapping>

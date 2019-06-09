@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,17 +11,19 @@ public class Caidat  implements java.io.Serializable {
 
 
      private Integer id;
-     private float tyLePhuThu;
-     private int soKhachToiDa;
+     private Float tyLePhuThu;
+     private Integer soKhachToiDa;
      private Date ngayBatDau;
+     private Boolean xoa;
 
     public Caidat() {
     }
 
-    public Caidat(float tyLePhuThu, int soKhachToiDa, Date ngayBatDau) {
+    public Caidat(Float tyLePhuThu, Integer soKhachToiDa, Date ngayBatDau, Boolean xoa) {
        this.tyLePhuThu = tyLePhuThu;
        this.soKhachToiDa = soKhachToiDa;
        this.ngayBatDau = ngayBatDau;
+       this.xoa = xoa;
     }
    
     public Integer getId() {
@@ -31,18 +33,18 @@ public class Caidat  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public float getTyLePhuThu() {
+    public Float getTyLePhuThu() {
         return this.tyLePhuThu;
     }
     
-    public void setTyLePhuThu(float tyLePhuThu) {
+    public void setTyLePhuThu(Float tyLePhuThu) {
         this.tyLePhuThu = tyLePhuThu;
     }
-    public int getSoKhachToiDa() {
+    public Integer getSoKhachToiDa() {
         return this.soKhachToiDa;
     }
     
-    public void setSoKhachToiDa(int soKhachToiDa) {
+    public void setSoKhachToiDa(Integer soKhachToiDa) {
         this.soKhachToiDa = soKhachToiDa;
     }
     public Date getNgayBatDau() {
@@ -51,6 +53,13 @@ public class Caidat  implements java.io.Serializable {
     
     public void setNgayBatDau(Date ngayBatDau) {
         this.ngayBatDau = ngayBatDau;
+    }
+    public Boolean getXoa() {
+        return this.xoa;
+    }
+    
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
     }
 
 

@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 1, 2019 12:10:58 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 9, 2019 6:17:03 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="quanlykhachsan.entity.Phieuthuephong" table="phieuthuephong" catalog="quanlykhachsan" optimistic-lock="version">
         <id name="maPhieuThue" type="java.lang.Integer">
             <column name="MaPhieuThue" />
             <generator class="identity" />
         </id>
-        <property name="ngayThue" type="date">
-            <column name="NgayThue" length="10" not-null="true" />
+        <property name="maPhong" type="java.lang.Integer">
+            <column name="MaPhong" />
+        </property>
+        <property name="ngayThue" type="timestamp">
+            <column name="NgayThue" length="26" />
         </property>
         <property name="tongTien" type="java.lang.Float">
             <column name="TongTien" precision="12" scale="0" />
         </property>
-        <property name="maHd" type="int">
-            <column name="MaHD" not-null="true" />
+        <property name="xoa" type="java.lang.Boolean">
+            <column name="Xoa" />
         </property>
     </class>
 </hibernate-mapping>

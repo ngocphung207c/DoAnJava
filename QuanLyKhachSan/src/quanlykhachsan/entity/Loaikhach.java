@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 1, 2019 12:10:57 AM by Hibernate Tools 4.3.1
+// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,29 +9,25 @@ package quanlykhachsan.entity;
 public class Loaikhach  implements java.io.Serializable {
 
 
-     private int maLoai;
+     private Integer maLoai;
      private String tenLoai;
-     private Double heSo;
+     private Float heSo;
+     private Boolean xoa;
 
     public Loaikhach() {
     }
 
-	
-    public Loaikhach(int maLoai, String tenLoai) {
-        this.maLoai = maLoai;
-        this.tenLoai = tenLoai;
-    }
-    public Loaikhach(int maLoai, String tenLoai, Double heSo) {
-       this.maLoai = maLoai;
+    public Loaikhach(String tenLoai, Float heSo, Boolean xoa) {
        this.tenLoai = tenLoai;
        this.heSo = heSo;
+       this.xoa = xoa;
     }
    
-    public int getMaLoai() {
+    public Integer getMaLoai() {
         return this.maLoai;
     }
     
-    public void setMaLoai(int maLoai) {
+    public void setMaLoai(Integer maLoai) {
         this.maLoai = maLoai;
     }
     public String getTenLoai() {
@@ -41,18 +37,26 @@ public class Loaikhach  implements java.io.Serializable {
     public void setTenLoai(String tenLoai) {
         this.tenLoai = tenLoai;
     }
-    public Double getHeSo() {
+    public Float getHeSo() {
         return this.heSo;
     }
     
-    public void setHeSo(Double heSo) {
+    public void setHeSo(Float heSo) {
         this.heSo = heSo;
     }
-     @Override
+    public Boolean getXoa() {
+        return this.xoa;
+    }
+    
+    public void setXoa(Boolean xoa) {
+        this.xoa = xoa;
+    }
+    @Override
     public String toString()
     {
         return this.tenLoai;
     }
+
 
 
 }

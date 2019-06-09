@@ -1,24 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 1, 2019 12:10:58 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 9, 2019 6:17:03 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="quanlykhachsan.entity.Phieuthuekhachhang" table="phieuthuekhachhang" catalog="quanlykhachsan" optimistic-lock="version">
-        <id name="maPhieuThue" type="java.lang.Integer">
-            <column name="MaPhieuThue" />
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
             <generator class="identity" />
         </id>
-        <property name="khachHang" type="string">
-            <column name="KhachHang" length="100" not-null="true" />
+        <property name="maPhieuThue" type="java.lang.Integer">
+            <column name="MaPhieuThue" />
         </property>
-        <property name="loaiKhach" type="string">
-            <column name="LoaiKhach" length="100" not-null="true" />
+        <property name="tenKhachHang" type="string">
+            <column name="TenKhachHang" length="50" />
+        </property>
+        <property name="loaiKhach" type="java.lang.Integer">
+            <column name="LoaiKhach" />
         </property>
         <property name="cmnd" type="string">
-            <column name="CMND" length="50" not-null="true" />
+            <column name="CMND" length="20" />
         </property>
         <property name="diaChi" type="string">
-            <column name="DiaChi" length="200" />
+            <column name="DiaChi" length="100" />
+        </property>
+        <property name="xoa" type="java.lang.Boolean">
+            <column name="Xoa" />
         </property>
     </class>
 </hibernate-mapping>
