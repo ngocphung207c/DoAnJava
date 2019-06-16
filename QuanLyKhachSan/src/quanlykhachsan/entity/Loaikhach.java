@@ -1,5 +1,5 @@
 package quanlykhachsan.entity;
-// Generated Jun 9, 2019 6:17:02 PM by Hibernate Tools 4.3.1
+// Generated Jun 13, 2019 4:36:06 PM by Hibernate Tools 4.3.1
 
 
 
@@ -51,12 +51,12 @@ public class Loaikhach  implements java.io.Serializable {
     public void setXoa(Boolean xoa) {
         this.xoa = xoa;
     }
-    @Override
+
+@Override
     public String toString()
     {
         return this.tenLoai;
     }
-
 
 
 }

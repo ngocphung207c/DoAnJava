@@ -47,7 +47,7 @@ public class PhongDao {
         org.hibernate.Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Query q = session.createQuery("from Phong where TinhTrang = 'Trong' ");
+            Query q = session.createQuery("from Phong where TinhTrang = 'Trong' where Xoa = true");
             phongList = (List<Phong>) q.list();
             tx.commit();
         } catch (Exception e) {
@@ -170,7 +170,7 @@ public class PhongDao {
         }
         return phongList;
     }
-      public boolean themPhong(Phong p) {
+     public boolean themPhong(Phong p) {
         boolean kq = true;
         org.hibernate.Transaction tx = null;
         try {

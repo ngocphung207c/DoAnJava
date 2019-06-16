@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package quanlykhachsan.view;
+import java.awt.Component;
+import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import quanlykhachsan.*;
 import quanlykhachsan.dao.*;
 import quanlykhachsan.entity.*;
@@ -16,10 +20,15 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginFrame
      */
+    TaiKhoanDao tkDao = new TaiKhoanDao();
     public LoginFrame() {
         initComponents();
         setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        setTitle("LegendSoft - Khách sạn Legend - 987 Đường Nguyễn Văn Cừ. P1. Q10");
         
+         ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg1.jpg").getImage());
+         getContentPane().add(panel);
+      
     }
 
     /**
@@ -31,21 +40,194 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtUser = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
+        btnLogin = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ĐĂNG NHẬP");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Username");
+
+        txtUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Password");
+
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
+
+        btnLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnLogin.setText("Đăng nhập");
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Adorable", 3, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("LegendSoft");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(421, 421, 421)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(txtPass)
+                            .addComponent(txtUser))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(480, 480, 480)
+                .addComponent(jLabel1)
+                .addContainerGap(576, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(82, 82, 82)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(30, 30, 30)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        // TODO add your handling code here:
+        if(!this.txtUser.getText().equals("") && !String.valueOf(this.txtPass.getPassword()).equals(""))
+        {
+             List <Taikhoan> kttk = tkDao.timTkByUser(this.txtUser.getText());
+            if(kttk != null && !kttk.isEmpty())
+            {
+               if(kttk.get(0).getPasswork().equals(String.valueOf(this.txtPass.getPassword())) && kttk.get(0).getXoa()==false) 
+               {
+                   MainMenuFrame menu = new MainMenuFrame(kttk.get(0).getLoaiTaiKhoan());
+                   menu.setVisible(true);
+                   menu.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+                   this.setVisible(false);
+               }
+               else
+               {
+                   JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+               }
+            }
+            else
+           {
+               JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+           }
+        }
+        else
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+        }
+        
+    }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        // TODO add your handling code here:
+        if(!this.txtUser.getText().equals("") && !String.valueOf(this.txtPass.getPassword()).equals(""))
+        {
+             List <Taikhoan> kttk = tkDao.timTkByUser(this.txtUser.getText());
+            if(kttk != null && !kttk.isEmpty())
+            {
+               if(kttk.get(0).getPasswork().equals(String.valueOf(this.txtPass.getPassword())) && kttk.get(0).getXoa()==false) 
+               {
+                   MainMenuFrame menu = new MainMenuFrame(kttk.get(0).getLoaiTaiKhoan());
+                   menu.setVisible(true);
+                   menu.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+                    this.setVisible(false);
+                   
+               }
+               else
+               {
+                   JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+               }
+            }
+            else
+           {
+               JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+           }
+        }
+        else
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+        }
+    }//GEN-LAST:event_btnLoginKeyPressed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+         if(!this.txtUser.getText().equals("") && !String.valueOf(this.txtPass.getPassword()).equals(""))
+        {
+             List <Taikhoan> kttk = tkDao.timTkByUser(this.txtUser.getText());
+            if(kttk != null && !kttk.isEmpty())
+            {
+               if(kttk.get(0).getPasswork().equals(String.valueOf(this.txtPass.getPassword())) && kttk.get(0).getXoa()==false) 
+               {
+                   MainMenuFrame menu = new MainMenuFrame(kttk.get(0).getLoaiTaiKhoan());
+                   menu.setVisible(true);
+                   menu.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+                    this.setVisible(false);
+               }
+               else
+               {
+                   JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+               }
+            }
+            else
+           {
+               JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+           }
+        }
+        else
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Sai username hoặc password", "Thông báo", JOptionPane.CLOSED_OPTION);
+        }
+    }//GEN-LAST:event_txtPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,5 +265,12 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

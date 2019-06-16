@@ -46,23 +46,22 @@ public class DSPhongFrame extends javax.swing.JFrame {
         ImageIcon iconTra = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit4.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnTra.setIcon(iconTra);
         
-        ImageIcon iconTim = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconTim = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/search1.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnTim.setIcon(iconTim);
         
-        ImageIcon iconAdd= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/add4.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconAdd= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/add.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnAdd.setIcon(iconAdd);
         
-        ImageIcon iconEdit= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/edit.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconEdit= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/edit4.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnEdit.setIcon(iconEdit);
         
-        ImageIcon iconDelete= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/delete4.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconDelete= new ImageIcon(new ImageIcon("D:/LegendSoft/Images/delete5.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnDelete.setIcon(iconDelete);
         
          String [] ColumNames={"STT","Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
         modeltable = new DefaultTableModel(null , ColumNames);
-        
-        List<Phong> pTList = pDao.getPhongList();
-        hienThiDsPhong(pTList);
+       
+       loadDSPhong();
         
        modelCombox = (DefaultComboBoxModel) cmbLoaiPhongTim.getModel();
        List<Loaiphong> lpListTim = lpDao.getLoaiPhongList();
@@ -299,7 +298,7 @@ public class DSPhongFrame extends javax.swing.JFrame {
                                         .addComponent(cmbLoaiPhongTim, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1))
                         .addGap(35, 35, 35)
@@ -433,12 +432,13 @@ public class DSPhongFrame extends javax.swing.JFrame {
             if(ktp == null || ktp.isEmpty())
             {
                 Loaiphong lp = (Loaiphong) this.cmbLoaiPhong.getSelectedItem();
-                Phong pThem = new Phong(this.txtTenPhong.getText(),this.txtGhiChu.getText(),"Trong",lp.getMaLoai());
+                Phong pThem = new Phong(this.txtTenPhong.getText(),this.txtGhiChu.getText(),"Trống",lp.getMaLoai(), false);
                 kq = pDao.themPhong(pThem);
             }
             else
             {
                 JOptionPane.showConfirmDialog((Component) null, "Tên phòng này đã có rồi!!!", "Thông báo", JOptionPane.CLOSED_OPTION);
+                kq = false;
             }
         }
          else
@@ -588,12 +588,12 @@ public class DSPhongFrame extends javax.swing.JFrame {
        for(int i=0;i<dsp.size();i++)
         {     
             Phong s = (Phong) dsp.get(i);
-            Loaiphong lp = lpDao.TonTai(s.getMaLoai());
-          // if(s.getTinhTrang().equals("Trong"))
-           // {
+           if(s.getXoa() == false)
+            {
+                Loaiphong lp = lpDao.TonTai(s.getMaLoai());
                 Object[] items = new Object[]{i+1,s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang(), s.getGhiChu()};
                 modeltable.addRow(items);
-            //}
+            }
         }
         jTable1.setModel(modeltable);
         jTable1.setRowHeight(30);

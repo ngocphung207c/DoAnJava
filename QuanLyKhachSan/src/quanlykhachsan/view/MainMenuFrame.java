@@ -35,6 +35,11 @@ public class MainMenuFrame extends javax.swing.JFrame {
     //JButton jbut = new JButton("jButton1");
     public MainMenuFrame() {
         initComponents();
+        
+        ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg1.jpg").getImage());
+        getContentPane().add(panel);
+        setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+         
         JMenuBar menubar = new JMenuBar();
         ImageIcon icon = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit1.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
         JMenu file = new JMenu("File");
@@ -87,6 +92,70 @@ public class MainMenuFrame extends javax.swing.JFrame {
        
     }
 
+    public MainMenuFrame(int loaitk) {
+        initComponents();
+        
+        ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg1.jpg").getImage());
+        getContentPane().add(panel);
+        setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+         
+        JMenuBar menubar = new JMenuBar();
+        ImageIcon icon = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit1.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+        JMenu file = new JMenu("File");
+        file.setMnemonic(KeyEvent.VK_F);
+  
+        JMenuItem eMenuItem = new JMenuItem("Exit", icon);
+        eMenuItem.setMnemonic(KeyEvent.VK_E);
+        eMenuItem.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.exit(0); 
+            }
+        });
+        file.add(eMenuItem);
+        menubar.add(file);
+  
+        setJMenuBar(menubar);
+        setTitle("LegendSoft - Khách sạn Legend - 987 Đường Nguyễn Văn Cừ. P1. Q10");
+        
+        // button mượn phòng room
+        ImageIcon iconKey = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/key2.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        this.btnKey.setIcon(iconKey);
+        
+       // button danh sách phòng
+       ImageIcon iconRoom = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/hotel.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+       this.btnRoom.setIcon(iconRoom);
+       
+       //btn Nhan vien
+       ImageIcon iconNV = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/user.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+       this.btnNhanVien.setIcon(iconNV);
+       
+       
+       // button doanh thu
+        ImageIcon iconDiagram = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/diagram.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        this.btnDoanhThu.setIcon(iconDiagram);
+        
+        //button Setting
+        ImageIcon iconSetting = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/setting2.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        this.btnSetting.setIcon(iconSetting);
+        
+        // button tra phong
+        ImageIcon iconTra = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        this.btnTra.setIcon(iconTra);
+        
+        //btn Exit
+        ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit1.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        this.btnExit.setIcon(iconExit);
+       
+        if(loaitk != 1)
+        {
+            this.btnNhanVien.setEnabled(false);
+            this.btnDoanhThu.setEnabled(false);
+            this.btnSetting.setEnabled(false);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -273,6 +342,9 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
     private void btnNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhanVienMouseClicked
         // TODO add your handling code here:
+         NhanVienFrame nv = new NhanVienFrame();
+        nv.setVisible(true);
+         nv.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnNhanVienMouseClicked
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
