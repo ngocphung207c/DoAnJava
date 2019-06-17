@@ -336,6 +336,7 @@ public class DSPhongFrame extends javax.swing.JFrame {
                 ThueFrame room = new ThueFrame(this.txtTenPhongChon.getText(),donGia);
                 room.setVisible(true);
                 room.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+                this.setVisible(false);
             }
             else
             {
@@ -356,6 +357,7 @@ public class DSPhongFrame extends javax.swing.JFrame {
                 DSPhongThue room = new DSPhongThue(this.txtTenPhongChon.getText());
                 room.setVisible(true);
                 room.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+                this.setVisible(false);
             }
             else
             {
@@ -495,7 +497,7 @@ public class DSPhongFrame extends javax.swing.JFrame {
             }
             else
             {
-                Loaiphong lp = (Loaiphong) this.cmbLoaiPhong.getSelectedItem();
+                ktp.get(0).setXoa(true);
                 kq = pDao.xoaPhong(ktp.get(0));
             }
         }

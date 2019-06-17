@@ -32,6 +32,7 @@ public class DSPhongThue extends javax.swing.JFrame {
     PhongDao pDao = new PhongDao();
     LoaiPhongDao lpDao = new LoaiPhongDao();
     PhieuThuePhongDao thuepDao = new PhieuThuePhongDao();
+    HoaDonDao hdDao = new HoaDonDao();
     String tenPhongChon = "";
     int maPhieuThue = 0;
     public DSPhongThue() {
@@ -205,6 +206,11 @@ public class DSPhongThue extends javax.swing.JFrame {
 
         btnTra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnTra.setText("Tính tiền");
+        btnTra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTraMouseClicked(evt);
+            }
+        });
         btnTra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTraActionPerformed(evt);
@@ -431,6 +437,44 @@ public class DSPhongThue extends javax.swing.JFrame {
     private void cbTenPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTenPhongActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbTenPhongActionPerformed
+
+    private void btnTraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraMouseClicked
+        // TODO add your handling code here:
+        if(jTable1.getSelectedRow() != -1)
+        {
+           int index = jTable1.getSelectedRow();
+           int maphieu = (int)(modeltable.getValueAt(index,0));
+           boolean kq = false;
+           List <Object[]> lst = thuepDao.timChiTietThuePhongList(maphieu);
+           if(lst.isEmpty() || lst == null)
+           {
+               JOptionPane.showConfirmDialog((Component) null, "Phòng này đã được trả", "Thông báo", JOptionPane.CLOSED_OPTION);
+           }
+           else
+           {
+               Object[] o = lst.get(0);
+                Date daynow = new Date();
+                int maphong = (int) o[0];
+                Hoadon hd = new Hoadon(maphong,maphieu,o[2].toString(),o[3].toString(),Float.valueOf(o[4].toString()),Integer.valueOf(this.txtSoNgay.getText()), Float.valueOf(this.txtTongTien.getText()),daynow,false);
+                kq = hdDao.themHoaDon(hd);
+                thuepDao.traPhong(maphieu);
+                pDao.traPhong(maphong);
+                if(kq == true)
+                {
+                    JOptionPane.showConfirmDialog((Component) null, "Đã thanh toán xong, tổng tiền là " + this.txtTongTien.getText(), "Thông báo", JOptionPane.CLOSED_OPTION);
+                     loadDSPhong();
+                }
+           } 
+           
+        }
+        else
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Vui lòng chọn trong danh sách", "Thông báo", JOptionPane.CLOSED_OPTION);
+
+        }
+        
+        
+    }//GEN-LAST:event_btnTraMouseClicked
 
    void loadDSPhong()
     {

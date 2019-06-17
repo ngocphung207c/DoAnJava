@@ -8,6 +8,7 @@ package quanlykhachsan.dao;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import quanlykhachsan.*;
 import quanlykhachsan.entity.*;
@@ -209,7 +210,26 @@ public class PhongDao {
         org.hibernate.Transaction tx = null;
         try {
             tx = session.beginTransaction();
-           session.delete(p);
+           session.update(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
+     
+     public boolean traPhong(int maphong) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String sql = "Update Phong set TinhTrang ='Trống' where Maphong =" +maphong;
+            SQLQuery q = session.createSQLQuery(sql);
+            int result = q.executeUpdate();
             tx.commit();
         } catch (Exception e) {
             kq = false;
