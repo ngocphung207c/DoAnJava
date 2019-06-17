@@ -338,7 +338,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
            int index = jTable1.getSelectedRow();
            String TenPhong = (String)(modeltable.getValueAt(index,1));
            this.txtTenPhongChon.setText(TenPhong);
-           donGia = (float)(modeltable.getValueAt(index,2));
+           //donGia = (float)(modeltable.getValueAt(index,2));
            tinhTrang = (String)(modeltable.getValueAt(index,3));
         }
     }//GEN-LAST:event_jTable1MouseClicked
