@@ -27,15 +27,15 @@ public class QuanLyKhachSan {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       /* ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg1.jpg").getImage());
+        ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg1.jpg").getImage());
         MainMenuFrame menu = new MainMenuFrame();
         menu.getContentPane().add(panel);
         menu.setVisible(true);
-        menu.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);*/
+        menu.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
        
-       LoginFrame lg = new LoginFrame();
+      /* LoginFrame lg = new LoginFrame();
        lg.setVisible(true);
-       lg.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+       lg.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);*/
     }
     
 }

@@ -79,7 +79,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
         this.btnDoanhThu.setIcon(iconDiagram);
         
         //button Setting
-        ImageIcon iconSetting = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/setting.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        ImageIcon iconSetting = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/setting2.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
         this.btnSetting.setIcon(iconSetting);
         
         // button tra phong
@@ -87,7 +87,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
         this.btnTra.setIcon(iconTra);
         
         //btn Exit
-        ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit1.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnExit.setIcon(iconExit);
        
     }
@@ -142,11 +142,11 @@ public class MainMenuFrame extends javax.swing.JFrame {
         this.btnSetting.setIcon(iconSetting);
         
         // button tra phong
-        ImageIcon iconTra = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        ImageIcon iconTra = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit4.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
         this.btnTra.setIcon(iconTra);
         
         //btn Exit
-        ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit1.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnExit.setIcon(iconExit);
        
         if(loaitk != 1)
@@ -349,6 +349,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     /**

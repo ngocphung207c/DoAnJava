@@ -5,8 +5,13 @@
  */
 package quanlykhachsan.view;
 
+import java.awt.Component;
 import java.awt.Image;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import quanlykhachsan.*;
 import quanlykhachsan.dao.*;
 import quanlykhachsan.entity.*;
@@ -19,6 +24,12 @@ public class DSPhongThue extends javax.swing.JFrame {
     /**
      * Creates new form DSPhongThue
      */
+     DefaultTableModel modeltable;
+    
+    PhongDao pDao = new PhongDao();
+    LoaiPhongDao lpDao = new LoaiPhongDao();
+    String tenPhongChon = "";
+    
     public DSPhongThue() {
         initComponents();
         ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
@@ -36,6 +47,11 @@ public class DSPhongThue extends javax.swing.JFrame {
         
         ImageIcon iconIn = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/printer.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnIn.setIcon(iconIn);
+        
+        String [] ColumNames={"STT","Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
+        modeltable = new DefaultTableModel(null , ColumNames);
+       
+       loadDSPhong();
     }
 
     /**
@@ -48,9 +64,7 @@ public class DSPhongThue extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        txtTenPhongTim = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         btnTim = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,6 +77,8 @@ public class DSPhongThue extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnIn = new javax.swing.JButton();
+        cbTenPhong = new javax.swing.JCheckBox();
+        cbCMND = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,20 +86,17 @@ public class DSPhongThue extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Danh sách tất cả các phòng thuê");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Tên phòng");
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("CMND");
+        txtTenPhongTim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnTim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnTim.setText("Tìm");
+        btnTim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTimMouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,6 +146,14 @@ public class DSPhongThue extends javax.swing.JFrame {
         btnIn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnIn.setText("In hóa đơn");
 
+        cbTenPhong.setBackground(new java.awt.Color(255, 255, 255));
+        cbTenPhong.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbTenPhong.setText("Tên phòng");
+
+        cbCMND.setBackground(new java.awt.Color(255, 255, 255));
+        cbCMND.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbCMND.setText("CMND");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,17 +163,19 @@ public class DSPhongThue extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(224, 224, 224))
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel8)
+                        .addGap(74, 74, 74)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(cbTenPhong)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTenPhongTim, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(cbCMND)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -181,11 +204,11 @@ public class DSPhongThue extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
+                    .addComponent(txtTenPhongTim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTenPhong)
+                    .addComponent(cbCMND))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -222,6 +245,87 @@ public class DSPhongThue extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnTimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTimMouseClicked
+        // TODO add your handling code here:
+        List<Phong> pTList = null; 
+        boolean kt = true;
+        if(cbTenPhong.isSelected() == false && this.cbCMND.isSelected() == false)
+        {
+            JOptionPane.showConfirmDialog((Component) null, "Vui lòng check tên hay loại phòng  muốn tìm", "Thông báo", JOptionPane.CLOSED_OPTION);
+            kt = false;
+            loadDSPhong();
+        }
+        else
+        {
+            //Loaiphong lps = (Loaiphong) this.cmbLoaiPhongTim.getSelectedItem();
+           /* if(this.cbTenPhong.isSelected() && this.txtTenPhongTim.getText() != "" && this.cbCMND.isSelected())
+            {
+                pTList = pDao.timPhongTrongByLoaiTen(txtTenPhongTim.getText(), lps.getMaLoai());
+            }
+            else
+            {
+                if(this.cbTenPhong.isSelected() && this.txtTenPhongTim.getText() != "")
+                {
+                    pTList = pDao.timPhongTrongByTen(txtTenPhongTim.getText());
+                }
+                else
+                {
+                    if(this.cbLoaiPhong.isSelected())
+                    {
+                        
+                        pTList = pDao.timPhongTrongByLoai(lps.getMaLoai());
+                    }
+                    else
+                    {
+                         JOptionPane.showConfirmDialog((Component) null,  "Vui lòng check tên hay loại phòng muốn tìm", "Thông báo", JOptionPane.CLOSED_OPTION);
+                         kt = false;
+                    }
+                }
+                
+            }*/
+        }
+        if(kt == true)
+        {
+            if(pTList == null || pTList.isEmpty())
+            {
+                JOptionPane.showConfirmDialog((Component) null, "Tên hoặc loại phòng không có", "Thông báo", JOptionPane.CLOSED_OPTION);
+            }
+            else
+            {
+                hienThiDsPhong(pTList);
+            }
+        }
+    }//GEN-LAST:event_btnTimMouseClicked
+
+   void loadDSPhong()
+    {
+        List<Phong> pTList = pDao.getPhongList();
+        hienThiDsPhong(pTList);
+    }
+    void hienThiDsPhong(List <Phong> dsp)
+    {  
+        modeltable.getDataVector().removeAllElements();
+       // modeltable.fireTableDataChanged(); 
+       LoaiPhongDao lpDao = new LoaiPhongDao();
+       for(int i=0;i<dsp.size();i++)
+        {     
+            Phong s = (Phong) dsp.get(i);
+           if(s.getXoa() == false)
+            {
+                Loaiphong lp = lpDao.TonTai(s.getMaLoai());
+                Object[] items = new Object[]{i+1,s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang(), s.getGhiChu()};
+                modeltable.addRow(items);
+            }
+        }
+        jTable1.setModel(modeltable);
+        jTable1.setRowHeight(30);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
+    }
     /**
      * @param args the command line arguments
      */
@@ -262,17 +366,17 @@ public class DSPhongThue extends javax.swing.JFrame {
     private javax.swing.JButton btnIn;
     private javax.swing.JButton btnTim;
     private javax.swing.JButton btnTra;
+    private javax.swing.JCheckBox cbCMND;
+    private javax.swing.JCheckBox cbTenPhong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtTenPhongTim;
     // End of variables declaration//GEN-END:variables
 }

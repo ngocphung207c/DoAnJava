@@ -46,7 +46,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         ImageIcon iconTim = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnTim.setIcon(iconTim);
         
-         ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit2.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+         ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnExit.setIcon(iconExit);
         
         String [] ColumNames={"STT", "Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
@@ -336,7 +336,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         if(jTable1.getSelectedRow() != -1)
         {
            int index = jTable1.getSelectedRow();
-           String TenPhong = (String)(modeltable.getValueAt(index,0));
+           String TenPhong = (String)(modeltable.getValueAt(index,1));
            this.txtTenPhongChon.setText(TenPhong);
            donGia = (float)(modeltable.getValueAt(index,2));
            tinhTrang = (String)(modeltable.getValueAt(index,3));
