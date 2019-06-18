@@ -35,6 +35,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
     String tenPhongChon = "";
     float donGia = 0;
     String tinhTrang = "";
+    int maPhong = 0;
     public DSPhongTrongFrame() {
         initComponents();
          ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg12.jpg").getImage());
@@ -45,9 +46,6 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         
         ImageIcon iconTim = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnTim.setIcon(iconTim);
-        
-         ImageIcon iconExit = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/exit6.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
-        this.btnExit.setIcon(iconExit);
         
         String [] ColumNames={"STT", "Phòng","Loại Phòng", "Đơn Giá", "Tình trạng"}; 
         modeltable = new DefaultTableModel(null , ColumNames);
@@ -83,7 +81,6 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
         btnTim = new javax.swing.JButton();
         btnThue = new javax.swing.JButton();
         txtTenPhongChon = new javax.swing.JTextField();
-        btnExit = new javax.swing.JButton();
         cmbLoaiPhong = new javax.swing.JComboBox<>();
         cbLoaiPhong = new javax.swing.JCheckBox();
         cbTenPhong = new javax.swing.JCheckBox();
@@ -145,19 +142,6 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
 
         txtTenPhongChon.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        btnExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnExit.setText("Thoát");
-        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnExitMouseClicked(evt);
-            }
-        });
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
         cmbLoaiPhong.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbLoaiPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbLoaiPhong.addItemListener(new java.awt.event.ItemListener() {
@@ -186,11 +170,9 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnThue, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                                    .addComponent(txtTenPhongChon)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnThue, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(txtTenPhongChon))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbTenPhong)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,29 +219,19 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
                         .addComponent(txtTenPhongChon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnThue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addGap(30, 289, Short.MAX_VALUE))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnExitMouseClicked
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void btnThueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThueMouseClicked
         // TODO add your handling code here:
         if(!this.txtTenPhongChon.getText().equals(""))
         {
-            ThueFrame thue = new ThueFrame(txtTenPhongChon.getText(), donGia);
+            this.setVisible(false);
+            ThueFrame thue = new ThueFrame(txtTenPhongChon.getText(), donGia );
             thue.setVisible(true);
             thue.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
         }
@@ -338,8 +310,8 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
            int index = jTable1.getSelectedRow();
            String TenPhong = (String)(modeltable.getValueAt(index,1));
            this.txtTenPhongChon.setText(TenPhong);
-           //donGia = (float)(modeltable.getValueAt(index,2));
-           tinhTrang = (String)(modeltable.getValueAt(index,3));
+           donGia = (float)(modeltable.getValueAt(index,3));
+           tinhTrang = (String)(modeltable.getValueAt(index,4));
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -398,7 +370,7 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
             Loaiphong lp = lpDao.TonTai(s.getMaLoai());
           // if(s.getTinhTrang().equals("Trong"))
            // {
-                Object[] items = new Object[]{i+1,s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang()};
+                Object[] items = new Object[]{s.getMaPhong(),s.getTenPhong(), lp.getTenLoai(), lp.getDonGia(), s.getTinhTrang()};
                 modeltable.addRow(items);
             //}
         }
@@ -412,7 +384,6 @@ public class DSPhongTrongFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnThue;
     private javax.swing.JButton btnTim;
     private javax.swing.JCheckBox cbLoaiPhong;

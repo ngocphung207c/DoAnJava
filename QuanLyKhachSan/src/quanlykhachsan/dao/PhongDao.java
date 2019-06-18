@@ -240,4 +240,23 @@ public class PhongDao {
         }
         return kq;
     }
+     
+     public boolean thuePhong(int maphong) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String sql = "Update Phong set TinhTrang ='Thuê' where Maphong =" +maphong;
+            SQLQuery q = session.createSQLQuery(sql);
+            int result = q.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
 }

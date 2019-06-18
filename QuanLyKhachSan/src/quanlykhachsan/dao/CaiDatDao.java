@@ -39,4 +39,21 @@ public class CaiDatDao {
         }
         return caiDatList.get(0);
     }
+    
+     public boolean themCaiDat(Caidat p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.save(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
 }

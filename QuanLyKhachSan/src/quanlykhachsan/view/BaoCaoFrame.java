@@ -29,6 +29,9 @@ public class BaoCaoFrame extends javax.swing.JFrame {
         
         ImageIcon iconXem = new ImageIcon(new ImageIcon("D:/LegendSoft/Images/xem.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         this.btnXem.setIcon(iconXem);
+        
+        this.jComboBox1.setSelectedIndex(6);
+        
     }
 
     /**
@@ -95,7 +98,7 @@ public class BaoCaoFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tháng");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

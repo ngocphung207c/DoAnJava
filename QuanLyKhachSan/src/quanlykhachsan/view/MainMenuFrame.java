@@ -33,6 +33,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
      * Creates new form MainMenuFrame
      */
     //JButton jbut = new JButton("jButton1");
+    int loaiTK = 2;
     public MainMenuFrame() {
         initComponents();
         
@@ -213,6 +214,11 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
         btnSetting.setText("set");
         btnSetting.setAlignmentY(0.0F);
+        btnSetting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSettingMouseClicked(evt);
+            }
+        });
 
         btnTra.setText("tra");
         btnTra.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -342,15 +348,29 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
     private void btnNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhanVienMouseClicked
         // TODO add your handling code here:
-         NhanVienFrame nv = new NhanVienFrame();
-        nv.setVisible(true);
-         nv.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        if(loaiTK == 1)
+        {
+            NhanVienFrame nv = new NhanVienFrame();
+            nv.setVisible(true);
+             nv.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        }
+         
     }//GEN-LAST:event_btnNhanVienMouseClicked
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSettingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSettingMouseClicked
+        // TODO add your handling code here:
+         if(loaiTK == 1)
+        {
+            SettingFrame nv = new SettingFrame();
+            nv.setVisible(true);
+            nv.setDefaultCloseOperation( javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        }
+    }//GEN-LAST:event_btnSettingMouseClicked
 
     /**
      * @param args the command line arguments

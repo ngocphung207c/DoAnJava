@@ -155,4 +155,74 @@ public class PhieuThuePhongDao {
         }
         return kq;
     }
+    
+    public int themPhong(Phieuthuephong p) {
+        int id = 0;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           
+            id = (int) session.save(p);
+            tx.commit();
+        } catch (Exception e) {
+            id = 0;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return id;
+    }
+     public boolean suaPhong(Phieuthuephong p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.update(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
+     
+     public boolean xoaPhong(Phieuthuephong p) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+           session.update(p);
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
+     
+     public boolean tinhTien(float tongtien, int MaPhieu) {
+        boolean kq = true;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String sql = "Update Phieuthuephong set TongTien ="+tongtien+ " where MaPhieuThue = "+ MaPhieu;
+            SQLQuery q = session.createSQLQuery(sql);
+            int result = q.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            kq = false;
+            tx.rollback();
+            e.printStackTrace();
+        }finally {
+            //session.close();
+        }
+        return kq;
+    }
 }

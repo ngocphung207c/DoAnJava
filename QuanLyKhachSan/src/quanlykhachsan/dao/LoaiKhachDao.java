@@ -39,4 +39,42 @@ public class LoaiKhachDao {
         }
         return lkhachList;
     }
+    
+    public Loaikhach TonTai(String TenKhach)
+    {
+        Loaikhach lp = null;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createQuery("from Loaikhach where TenLoai = '" + TenKhach +"'");
+            lp = (Loaikhach) q.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            return null;
+        }finally {
+           // session.close();
+        }
+        return lp;
+    }
+    
+    public Loaikhach getLoaiByID(int id)
+    {
+        Loaikhach lp = null;
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createQuery("from Loaikhach where MaLoai = " + id);
+            lp = (Loaikhach) q.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            return null;
+        }finally {
+           // session.close();
+        }
+        return lp;
+    }
 }

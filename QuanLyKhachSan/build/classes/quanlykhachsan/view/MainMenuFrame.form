@@ -135,6 +135,9 @@
         <Property name="text" type="java.lang.String" value="set"/>
         <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSettingMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTra">
       <Properties>

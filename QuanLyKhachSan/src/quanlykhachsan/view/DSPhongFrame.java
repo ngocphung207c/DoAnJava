@@ -33,6 +33,7 @@ public class DSPhongFrame extends javax.swing.JFrame {
      DefaultComboBoxModel modelComboxLP;
     PhongDao pDao = new PhongDao();
     LoaiPhongDao lpDao = new LoaiPhongDao();
+    
     public DSPhongFrame() {
         initComponents();
          ImagePanel panel = new ImagePanel(new ImageIcon("D:/LegendSoft/Images/bg7.jpg").getImage());
